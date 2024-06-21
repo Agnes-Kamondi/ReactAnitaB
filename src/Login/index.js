@@ -1,6 +1,6 @@
 import './index.css';
 import { useState } from 'react';
-import { login } from './utils';
+import { login } from '../LoginModal/utils';
 
 const Login = ()=>{
     const[username, setUsername] = useState('');

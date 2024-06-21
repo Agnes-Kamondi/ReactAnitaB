@@ -1,18 +1,19 @@
-import Login from "./Login";
-import Users from "./Users";
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import LoginModal from './LoginModal';
+import Users from './Users';
+import SingleUser from './Users/SingleUser';  
 
-
-export const Introduction = ()=>{
-  return(
-    <h2>What is React?</h2>  )
-};
-
-const App = ()=>{
+function App() {
   return (
-    <div>
-    <Login/>
-    <Users/>
-    </div>
-  )
+    <Router>
+      <Routes>
+        <Route path="/LoginModal" element={<LoginModal />} />
+        <Route path="/users" element={<Users />} />
+        <Route path="/users/:userId" element={<SingleUser />} />
+        <Route path="/" element={<Users />} /> {/* Add a default route */}
+      </Routes>
+    </Router>
+  );
 }
+
 export default App;
