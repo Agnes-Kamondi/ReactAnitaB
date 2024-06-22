@@ -2,21 +2,23 @@ import React, { useState } from 'react';
 import Modal from 'react-modal';
 import { login } from './utils';
 import './index.css';
-import './utils.js';
+import { useNavigate } from 'react-router-dom';
 
 const LoginModal = ({ onLogin }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [isOpen, setIsOpen] = useState(true);
+  const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
       const results = await login(username, password);
       if (results.success) {
-        onLogin();
+        onLogin(); // Optional: Use this for additional login logic if needed
         setIsOpen(false);
+        navigate('/users'); // Navigate to users page
       } else {
         setError(results.error);
       }

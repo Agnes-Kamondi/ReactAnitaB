@@ -9,14 +9,15 @@ const Users = () => {
 
   return (
     <div className="users-container">
-      <h2>Users Component</h2>
+      <h2>Users 
+      </h2>
       {loading && <h2>Loading users...</h2>}
       {errors.length > 0 && <h2>{errors}</h2>}
       {users.length > 0 ? (
         <div className="users-grid">
           {users.map((user) => (
-            <Link to={`/users/${user.id}`} key={user.id}>
-              <UserCard image={user.image} fullName={`${user.firstName} ${user.lastName}`} />
+            <Link to={`/users/${user.id}`} key={user.id} className='users'>
+              <UserCard  image={user.image} fullName={`${user.firstName} ${user.lastName}`} />
             </Link>
           ))}
         </div>

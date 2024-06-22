@@ -1,6 +1,7 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useGetSingleUser } from './hooks/useGetSingleUser';
+import './index.css';
 
 const SingleUser = () => {
   const { userId } = useParams();
@@ -24,8 +25,8 @@ const SingleUser = () => {
 
   return (
     <div className="single-user-container">
-      <img src={user.image} alt={`${user.firstName} ${user.lastName}`} />
       <h2>{`${user.firstName} ${user.lastName}`}</h2>
+      <img src={user.image} alt={`${user.firstName} ${user.lastName}`} />
       <p>Age: {user.age}</p>
       <p>Gender: {user.gender}</p>
       <div>
